@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Devs On GitHub</string>
+    <string name="action_settings">Settings</string>
+    <string name="share_profile">Share %s\'s profile!</string>
+</resources>
