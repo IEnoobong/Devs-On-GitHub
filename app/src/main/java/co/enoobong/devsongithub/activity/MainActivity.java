@@ -2,6 +2,7 @@ package co.enoobong.devsongithub.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -18,12 +19,12 @@ import co.enoobong.devsongithub.adapter.DevelopersAdapter;
 import co.enoobong.devsongithub.model.ApiResponse;
 import co.enoobong.devsongithub.network.ApiClient;
 import co.enoobong.devsongithub.network.ApiInterface;
+import co.enoobong.devsongithub.utils.Constants;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
-    private static final String TAG = MainActivity.class.getSimpleName();
     private ProgressBar progressBar;
     private RecyclerView recyclerView;
 
@@ -33,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        CollapsingToolbarLayout toolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
+        toolbarLayout.setTitle(String.format(getString(R.string.app_title), Constants.LANGUAGE, Constants.LOCATION));
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         recyclerView = (RecyclerView) findViewById(R.id.devsRecycler);
@@ -58,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<ApiResponse> call, Throwable t) {
                 progressBar.setVisibility(ProgressBar.INVISIBLE);
-                Toast.makeText(MainActivity.this, "Something very bad happened", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, R.string.error, Toast.LENGTH_LONG).show();
                 Log.e(MainActivity.class.getSimpleName(), t.toString());
             }
         });

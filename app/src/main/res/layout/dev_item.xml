@@ -8,7 +8,8 @@
     android:layout_margin="8dp"
     android:scrollbarAlwaysDrawVerticalTrack="true"
     android:scrollbars="vertical"
-    android:scrollbarStyle="insideInset">
+    android:scrollbarStyle="insideInset"
+    android:background="?android:attr/selectableItemBackground">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_image"

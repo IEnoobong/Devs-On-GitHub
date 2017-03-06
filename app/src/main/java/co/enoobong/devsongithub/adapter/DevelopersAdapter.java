@@ -18,6 +18,7 @@ import java.util.List;
 import co.enoobong.devsongithub.R;
 import co.enoobong.devsongithub.activity.ProfileActivity;
 import co.enoobong.devsongithub.model.Developer;
+import co.enoobong.devsongithub.utils.Constants;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
@@ -69,6 +70,7 @@ public class DevelopersAdapter extends RecyclerView.Adapter<DevelopersAdapter.De
             if(!TextUtils.isEmpty(imageUrl)){
                 Glide.with(context)
                         .load(imageUrl)
+                        .placeholder(R.drawable.progress_animation)
                         .dontAnimate()
                         .into(profileImage);
             } else {
@@ -88,7 +90,7 @@ public class DevelopersAdapter extends RecyclerView.Adapter<DevelopersAdapter.De
         public void onClick(final View view) {
             view.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
             Intent intent = new Intent(context, ProfileActivity.class);
-            intent.putExtra("Developer", developers.get(getAdapterPosition()));
+            intent.putExtra(Constants.DEVELOPERS, developers.get(getAdapterPosition()));
             context.startActivity(intent);
         }
     }

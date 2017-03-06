@@ -2,4 +2,8 @@
     <string name="app_name">Devs On GitHub</string>
     <string name="action_settings">Settings</string>
     <string name="share_profile">Share %s\'s profile!</string>
+    <string name="error">Something very bad happened :( Please contact support</string>
+    <string name="share_with">Share with</string>
+    <string name="share_text">Check out this awesome developer @%1$s, %2$s</string>
+    <string name="app_title">%1$s Developers in %2$s on GitHub</string>
 </resources>
