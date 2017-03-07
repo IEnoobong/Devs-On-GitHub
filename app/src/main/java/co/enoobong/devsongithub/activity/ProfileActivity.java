@@ -13,7 +13,7 @@ import com.bumptech.glide.Glide;
 
 import co.enoobong.devsongithub.R;
 import co.enoobong.devsongithub.model.Developer;
-import co.enoobong.devsongithub.utils.Constants;
+import co.enoobong.devsongithub.utils.Utils;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
@@ -32,7 +32,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         TextView profileUrl = (TextView) findViewById(R.id.profile_url);
         Button shareProfile = (Button) findViewById(R.id.share_profile);
 
-        developer = getIntent().getParcelableExtra(Constants.DEVELOPERS);
+        developer = getIntent().getParcelableExtra(Utils.DEVELOPERS);
         if(developer != null){
             Glide.with(this)
                     .load(developer.getImageUrl())

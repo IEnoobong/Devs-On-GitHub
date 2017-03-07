@@ -6,4 +6,6 @@
     <string name="share_with">Share with</string>
     <string name="share_text">Check out this awesome developer @%1$s, %2$s</string>
     <string name="app_title">%1$s Developers in %2$s on GitHub</string>
+    <string name="no_network">To continue, connect to a Wi-Fi or mobile network</string>
+    <string name="settings">Settings</string>
 </resources>
