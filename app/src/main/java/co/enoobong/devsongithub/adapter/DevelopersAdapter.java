@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-import android.view.HapticFeedbackConstants;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,6 +46,7 @@ public class DevelopersAdapter extends RecyclerView.Adapter<DevelopersAdapter.De
         Developer developer = developers.get(position);
         holder.setUserImage(context, developer.getImageUrl());
         holder.setUsername(developer.getUsername());
+        holder.setPosition(position + 1);
     }
 
     @Override
@@ -57,12 +57,13 @@ public class DevelopersAdapter extends RecyclerView.Adapter<DevelopersAdapter.De
 
     public class DeveloperViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private final CircleImageView profileImage;
-        private final TextView username;
+        private final TextView username, position;
 
         public DeveloperViewHolder(final View itemView) {
             super(itemView);
             profileImage = (CircleImageView) itemView.findViewById(R.id.profile_image);
             username = (TextView) itemView.findViewById(R.id.username);
+            position = (TextView) itemView.findViewById(R.id.position);
             itemView.setOnClickListener(this);
         }
 
@@ -86,9 +87,28 @@ public class DevelopersAdapter extends RecyclerView.Adapter<DevelopersAdapter.De
             }
         }
 
+        void setPosition(final int position) {
+            this.position.setText(toOrdinal(position));
+        }
+
+        String toOrdinal(final int number) {
+            if (number >= 11 && number <= 13) {
+                return number + "th";
+            }
+            switch (number % 10) {
+                case 1:
+                    return number + "st";
+                case 2:
+                    return number + "nd";
+                case 3:
+                    return number + "rd";
+                default:
+                    return number + "th";
+            }
+        }
+
         @Override
         public void onClick(final View view) {
-            view.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
             Intent intent = new Intent(context, ProfileActivity.class);
             intent.putExtra(Utils.DEVELOPERS, developers.get(getAdapterPosition()));
             context.startActivity(intent);

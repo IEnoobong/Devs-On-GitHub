@@ -1,32 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:background="?android:attr/selectableItemBackground"
     android:clickable="true"
     android:focusable="true"
-    android:layout_margin="8dp"
+    android:orientation="horizontal"
     android:scrollbarAlwaysDrawVerticalTrack="true"
-    android:scrollbars="vertical"
     android:scrollbarStyle="insideInset"
-    android:background="?android:attr/selectableItemBackground">
+    android:scrollbars="vertical">
+
+    <TextView
+        android:id="@+id/position"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
+        android:textSize="@dimen/text_size_big"
+        android:textStyle="bold" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_image"
         android:layout_width="72dp"
         android:layout_height="72dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="14dp"
+        android:layout_marginStart="14dp"
+        android:layout_toEndOf="@+id/position"
+        android:layout_toRightOf="@+id/position"
         app:civ_border_color="#FF000000"
         app:civ_border_width="2dp" />
 
     <TextView
         android:id="@+id/username"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginLeft="15dp"
         android:layout_marginStart="15dp"
         android:layout_toEndOf="@+id/profile_image"
         android:layout_toRightOf="@+id/profile_image"
-        android:textSize="24sp"
+        android:textSize="@dimen/text_size_big"
         android:textStyle="bold" />
 </RelativeLayout>
