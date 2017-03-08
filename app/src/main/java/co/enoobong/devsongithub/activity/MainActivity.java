@@ -40,15 +40,8 @@ public class MainActivity extends AppCompatActivity {
         CollapsingToolbarLayout toolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
         toolbarLayout.setTitle(String.format(getString(R.string.app_title), Utils.LANGUAGE, Utils.LOCATION));
 
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        recyclerView = (RecyclerView) findViewById(R.id.devsRecycler);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
-                layoutManager.getOrientation());
-        recyclerView.addItemDecoration(dividerItemDecoration);
-        recyclerView.setLayoutManager(layoutManager);
-
         if (Utils.isNetworkAvailable(this)) {
+            initializeUI();
             getJavaDevsInLagos();
         } else {
             Utils.showDialog(this, android.R.drawable.ic_dialog_alert, R.string.no_network)
@@ -58,8 +51,19 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(new Intent(Settings.ACTION_SETTINGS));
                         }
                     })
+                    .setCancelable(false)
                     .show();
         }
+    }
+
+    private void initializeUI() {
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        recyclerView = (RecyclerView) findViewById(R.id.devsRecycler);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
+                layoutManager.getOrientation());
+        recyclerView.addItemDecoration(dividerItemDecoration);
+        recyclerView.setLayoutManager(layoutManager);
     }
 
     private void getJavaDevsInLagos(){
