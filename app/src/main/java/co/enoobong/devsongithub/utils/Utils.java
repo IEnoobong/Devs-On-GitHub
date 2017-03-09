@@ -14,6 +14,7 @@ public class Utils {
     //API Query Parameters
     public static final String LANGUAGE = "Java";
     public static final String LOCATION = "Lagos";
+    public static final String SEARCH_TERMS = "language:" + LANGUAGE + "+location:" + LOCATION + "+type:users";
 
     public static boolean isNetworkAvailable(Context context) {
         ConnectivityManager connectivityManager

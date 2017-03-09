@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void getJavaDevsInLagos(){
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<ApiResponse> call = apiService.getJavaDevsInLagos();
+        Call<ApiResponse> call = apiService.getJavaDevsInLagos(Utils.SEARCH_TERMS);
         call.enqueue(new Callback<ApiResponse>() {
             @Override
             public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
