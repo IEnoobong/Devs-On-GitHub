@@ -27,10 +27,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_screen);
 
-        CircleImageView profileImage = (CircleImageView) findViewById(R.id.profile_image);
-        TextView username = (TextView) findViewById(R.id.username);
-        TextView profileUrl = (TextView) findViewById(R.id.profile_url);
-        Button shareProfile = (Button) findViewById(R.id.share_profile);
+        final CircleImageView profileImage = (CircleImageView) findViewById(R.id.profile_image);
+        final TextView username = (TextView) findViewById(R.id.username);
+        final TextView profileUrl = (TextView) findViewById(R.id.profile_url);
+        final Button shareProfile = (Button) findViewById(R.id.share_profile);
 
         developer = getIntent().getParcelableExtra(Utils.DEVELOPERS);
         if(developer != null){
@@ -52,7 +52,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.share_profile:
-                Intent sendIntent = new Intent();
+                final Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
                 sendIntent.putExtra(Intent.EXTRA_TEXT, String.format(getString(R.string.share_text), developer.getUsername(), developer.getProfileUrl()));
                 sendIntent.setType("text/plain");
