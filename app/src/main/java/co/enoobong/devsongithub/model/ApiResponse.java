@@ -10,7 +10,7 @@ import java.util.List;
 
 public class ApiResponse {
     @SerializedName("total_count")
-    private String totalCount;
+    private Integer totalCount;
     @SerializedName("incomplete_results")
     private Boolean incompleteResults;
     @SerializedName("items")
@@ -23,7 +23,7 @@ public class ApiResponse {
         return developers;
     }
 
-    public String getTotalCount() {
+    public Integer getTotalCount() {
         return totalCount;
     }
 
