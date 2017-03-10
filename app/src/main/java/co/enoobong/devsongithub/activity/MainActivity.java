@@ -59,11 +59,9 @@ public class MainActivity extends AppCompatActivity {
     private void initializeUI() {
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         recyclerView = (RecyclerView) findViewById(R.id.devsRecycler);
-        final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         final DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
-                layoutManager.getOrientation());
+                LinearLayoutManager.VERTICAL);
         recyclerView.addItemDecoration(dividerItemDecoration);
-        recyclerView.setLayoutManager(layoutManager);
     }
 
     private void getJavaDevsInLagos(){

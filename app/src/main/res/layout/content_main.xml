@@ -17,7 +17,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fadeScrollbars="true"
-            android:scrollbars="vertical" />
+            android:listDivider="?android:attr/listDivider"
+            android:orientation="vertical"
+            android:scrollbarStyle="insideInset"
+            android:scrollbars="vertical"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+            tools:listitem="@layout/dev_item" />
         <ProgressBar
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyleLarge"
